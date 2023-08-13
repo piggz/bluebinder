@@ -781,6 +781,7 @@ bluebinder_callbacks_transact(
                     if (((packet[5] << 8) | packet[4]) == 0x1003) {
                         for (int l = 0; l < 8; l++) {
                             uint8_t data_in = packet[7+l];
+                            printf("data_in: %x\n", data_in);
                             uint8_t mask = local_features_mask >> (7 - l) * 8;
                             uint8_t data_out = data_in & ~mask;
                             packet[7+l] = data_out;
